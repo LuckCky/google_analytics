@@ -4,8 +4,8 @@ class Get_GA_data():
     global dct2
     dct2 = {}
 
-    def get_ga_data(self, **dct):
-        dct = auth().ga_login().data().ga().get(**dct)
+    def get_ga_data(self, **kwargs):
+        dct = auth().ga_login().data().ga().get(**kwargs)
         self.dct_data = dct.execute()
         dct2[self.dct_data['query']['start-index']] = self.dct_data.copy()
         try:
