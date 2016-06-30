@@ -11,7 +11,6 @@ class Get_GA_data():
         try:
             if self.dct_data['nextLink']:
                 another_dct = self.dct_data['query'].copy()
-                print('another_dct', another_dct)
                 another_dct['start_index'] = another_dct['start-index'] + another_dct['max-results']
                 another_dct['max_results'] = another_dct['max-results']
                 another_dct['start_date'] = another_dct['start-date']
@@ -21,7 +20,6 @@ class Get_GA_data():
                 another_dct.pop('max-results')
                 another_dct.pop('start-date')
                 another_dct.pop('end-date')
-                print('another_dct2', another_dct)
                 return Get_GA_data().get_ga_data(**another_dct)
         except KeyError:
             return dct2
